@@ -89,15 +89,29 @@ def get_response_from_query(db, query, k=4):
     return response, docs
     
 ## Sam Altman: OpenAI, GPT-5, Sora, Board Saga, Elon Musk, Ilya, Power & AGI | Lex Fridman Podcast 
-video_url = "https://www.youtube.com/watch?v=jvqFAi7vkBc" 
+# video_url = "https://www.youtube.com/watch?v=jvqFAi7vkBc" 
 
-db = create_db_from_youtube_video_url(video_url)
+# db = create_db_from_youtube_video_url(video_url)
 
-query = "Give me a short summary of the video"
+# query = "Give me a short summary of the video"
 
 
 
     
-response, docs = get_response_from_query(db, query)
+# response, docs = get_response_from_query(db, query)
 
-print(textwrap.fill(response, width=85))
+# print(textwrap.fill(response, width=85))
+
+def main():
+    video_url = input("Enter the YouTube video URL: ")
+    db = create_db_from_youtube_video_url(video_url)
+
+    while True:
+        query = input("Enter your question (or type 'exit' to quit): ")
+        if query.lower() == 'exit':
+            break
+        response, docs = get_response_from_query(db, query)
+        print(textwrap.fill(response, width=85))
+
+if __name__ == "__main__":
+    main()
