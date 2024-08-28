@@ -17,7 +17,8 @@ from langchain.document_loaders import YoutubeLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 
-load_dotenv(find_dotenv())
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 embeddings = OpenAIEmbeddings()
 
@@ -51,7 +52,7 @@ def get_response_from_query(db, query, k=4):
     ## Initializing a ChatModel 
     chat = ChatOpenAI(
         model = "gpt-3.5-turbo"
-        ,api_key="sk-None-NmK2oXjPHTSresy9n630T3BlbkFJHXNgwZkFNRNVfUIX75lN"
+        ,api_key=openai_api_key
         ,temperature=0.2
     )
     chunks = []

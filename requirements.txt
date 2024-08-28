@@ -4,3 +4,5 @@ openai
 youtube-transcript-api
 faiss-cpu
 wikipedia
+langchain_openai
+langchain-community
